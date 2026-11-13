@@ -99,8 +99,6 @@ label {
     }
 }
 
-/* Lista de usuários */
-
 .usuario-item {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
@@ -119,6 +117,18 @@ label {
     margin-bottom: 5px;
     word-break: break-word;
 }
+
+.btn-excluir {
+    background: #dc2626;
+    color: white;
+    margin-top: 12px;
+}
+
+.btn-excluir:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+
 
 .usuario-item small {
     color: #64748b;
