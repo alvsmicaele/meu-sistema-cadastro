@@ -77,13 +77,51 @@ function listarUsuarios() {
         let numero = document.createElement("small");
         numero.textContent = "Usuário " + (indice + 1);
 
+        
+        let botaoExcluir = document.createElement("button");
+
+        botaoExcluir.textContent = "Excluir";
+        botaoExcluir.className = "btn-excluir";
+
+        botaoExcluir.addEventListener("click", function() {
+            excluirUsuario(indice);
+        });
+
+        
         item.appendChild(numero);
         item.appendChild(nome);
         item.appendChild(email);
+        item.appendChild(botaoExcluir);
 
         lista.appendChild(item);
 
     });
+
+}
+
+function excluirUsuario(indice) {
+
+    let confirmar = confirm(
+        "Tem certeza que deseja excluir este usuário?"
+    );
+
+    if (!confirmar) {
+        return;
+    }
+
+    
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    
+    usuarios.splice(indice, 1);
+
+    
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+    alert("Usuário excluído com sucesso!");
+
+    
+    listarUsuarios();
 
 }
 
